@@ -1,0 +1,19 @@
+// TextLink.scss
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: var(--space-2xs);
+  transition: opacity var(--theme-duration) ease;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  svg {
+    flex: 0 0 auto;
+  }
+}

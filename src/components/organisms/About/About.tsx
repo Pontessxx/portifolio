@@ -3,7 +3,7 @@ import { Section } from '../../atoms/Section/Section'
 import { PhotoFrame } from '../../molecules/PhotoFrame/PhotoFrame'
 import { InfoList } from '../../molecules/InfoList/InfoList'
 import { aboutInfo } from '../../../data/aboutInfo'
-import profilePhoto from '../../../../Assets/henrique_pontes.jpeg'
+import { contact } from '../../../data/contact'
 import './About.scss'
 import { SectionLabel } from '../../atoms/SectionLabel/SectionLabel'
 
@@ -16,7 +16,7 @@ export function About() {
       <div className="about">
         <div className="about__side">
           <div className="about__photo">
-            <PhotoFrame src={profilePhoto} alt="Foto do Henrique" />
+            <PhotoFrame src={contact.avatar} alt="Foto do Henrique" />
           </div>
         </div>
 

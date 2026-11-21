@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import { Footer } from '../../organisms/Footer/Footer'
 import { Header } from '../../organisms/Header/Header'
 import { ScrollToHash } from '../../atoms/ScrollToHash/ScrollToHash'
 import './MainLayout.scss'
@@ -12,6 +13,7 @@ export function MainLayout() {
       <main className="main-layout__content">
         <Outlet />
       </main>
+      <Footer />
     </div>
   )
 }

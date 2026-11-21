@@ -1,0 +1,27 @@
+// Footer.scss
+.footer {
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    max-width: calc(var(--container-max) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: var(--space-xl) var(--gutter) var(--space-lg);
+  }
+
+  &__text {
+    margin: 0;
+    font-family: var(--font-code);
+    font-size: var(--font-size-xs);
+    color: var(--g1);
+  }
+
+  &__top {
+    font-family: var(--font-code);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-big);
+    color: var(--fg);
+  }
+}

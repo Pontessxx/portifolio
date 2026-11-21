@@ -1,0 +1,55 @@
+// Contact.scss
+// O card usa as cores invertidas do tema: redefinimos as variáveis aqui dentro e
+// SectionLabel, PillLink e os links herdam sozinhos (claro no escuro, escuro no claro).
+.contact {
+  --bg: var(--inv-bg);
+  --fg: var(--inv-fg);
+  --g1: var(--inv-g);
+  --line: color-mix(in srgb, var(--inv-fg) 30%, transparent);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  padding: clamp(var(--space-lg), 5vw, var(--space-3xl));
+  border-radius: var(--space-lg);
+  background: var(--bg);
+  color: var(--fg);
+  transition:
+    background-color var(--theme-duration) ease,
+    color var(--theme-duration) ease;
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-code);
+    font-size: var(--font-size-tech-md);
+    font-weight: var(--font-weight-big);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  &__title-line {
+    display: block;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm) var(--space-md);
+    margin-top: var(--space-sm);
+  }
+
+  &__email {
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-md);
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
