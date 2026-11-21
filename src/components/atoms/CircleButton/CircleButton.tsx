@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
-import './CircleButtom.scss'
+import './CircleButton.scss'
 
 const icons = {
   right: ArrowRight,

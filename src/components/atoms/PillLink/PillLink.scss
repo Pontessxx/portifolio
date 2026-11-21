@@ -14,6 +14,10 @@
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-md);
   cursor: pointer;
+  transition:
+    background-color 0.25s ease-out,
+    color 0.25s ease-out,
+    border-color 0.25s ease-out;
 
   // ícone do lucide: herda a cor do texto (stroke="currentColor") e não encolhe no flex
   svg {
@@ -28,6 +32,12 @@
     background: var(--fg);
     color: var(--bg);
     border-color: var(--fg);
+
+    // hover: inverte — fundo some e o texto assume a cor do fundo claro/escuro
+    &:hover {
+      background: transparent;
+      color: var(--fg);
+    }
   }
 
   &--static {

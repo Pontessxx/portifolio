@@ -1,7 +1,8 @@
-// src/components/organisms/Hero/Hero.tsx
 import { Circle } from '../../atoms/Circle/Circle'
 import TechText from '../../atoms/TechText/TechText'
 import { StatusBadge } from '../../molecules/StatusBadge/StatusBadge'
+import { HeroCta } from '../../molecules/HeroCta/HeroCta'
+import { SocialLinks } from '../../molecules/SocialLinks/SocialLinks'
 import './Hero.scss'
 
 const CIRCLE_SIZE = 'clamp(320px, 43vw, 620px)'
@@ -31,6 +32,18 @@ export function Hero({ firstName, lastName }: HeroProps) {
             <TechText text={lastName} align="right" {...TITLE_PROPS} />
           </span>
         </h1>
+
+        <div className="hero__row">
+          <p className="hero__description">
+            Backend em C# com <em className="hero__em">.NET</em>, frontend em{' '}
+            <em className="hero__em">React e TypeScript</em>. Formado em <em className="hero__em">Engenharia de Software</em> e apaixonado por conhecimento.
+          </p>
+          <HeroCta label="Ver projetos" to="/projetos" ariaLabel="Ir para projetos" />
+        </div>
+
+        <div className="hero__social">
+          <SocialLinks />
+        </div>
       </div>
     </section>
   )

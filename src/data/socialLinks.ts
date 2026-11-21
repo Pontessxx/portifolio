@@ -1,0 +1,12 @@
+export type SocialLink = {
+  label: string
+  href?: string
+  arrow?: 'right' | 'up-right'
+}
+
+export const socialLinks: SocialLink[] = [
+  { label: 'GitHub', href: 'https://github.com/Pontessxx', arrow: 'up-right' },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/henrique-pontes-oliveira', arrow: 'up-right' },
+  { label: 'E-mail', href: 'mailto:hpo.pontes@gmail.com', arrow: 'up-right' },
+  { label: 'Osasco, SP — Brasil' }, // sem href: vira etiqueta
+]
