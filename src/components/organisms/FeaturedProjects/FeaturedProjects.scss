@@ -84,8 +84,8 @@
     cursor: pointer;
     transform: translateY(-50%);
     transition:
-      background-color 0.25s ease-out,
-      color 0.25s ease-out,
+      background-color var(--theme-duration) ease,
+      color var(--theme-duration) ease,
       opacity 0.25s ease-out;
 
     &:hover:not(:disabled) {

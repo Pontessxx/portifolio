@@ -9,6 +9,9 @@
   --inv-fg: #121212;
   --inv-g: #555555;
   --accent: #7123a2;
+  --scroll-thumb: #3a3a3a;
+  --scroll-thumb-hover: #5a5a5a;
+  color-scheme: dark;
 }
 
 :root[data-theme='light'] {
@@ -21,6 +24,9 @@
   --inv-fg: #f5f5f5;
   --inv-g: #a6a6a6;
   --accent: #7123a2;
+  --scroll-thumb: #c4c4c4;
+  --scroll-thumb-hover: #a0a0a0;
+  color-scheme: light;
 }
 
 :root {
@@ -61,6 +67,9 @@
   --font-size-tech-md: clamp(48px, 9vw, 120px);
   --font-size-tech-big: clamp(80px, 15.5vw, 200px);
 
+  // duração das trocas de tema (fundo, textos, bordas e scrollbar usam a mesma)
+  --theme-duration: 0.4s;
+
   // pesos
   --font-weight-sm: 300;
   --font-weight-md: 400;
@@ -73,6 +82,41 @@
   box-sizing: border-box;
 }
 
+// scrollbar no tema: trilho da cor do fundo e thumb arredondado
+html {
+  scrollbar-color: var(--scroll-thumb) var(--bg); // Firefox
+  scrollbar-width: auto;
+}
+
+@supports selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-color: auto;
+    scrollbar-width: auto;
+  }
+
+  ::-webkit-scrollbar {
+    width: var(--space-sm);
+    height: var(--space-sm);
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--bg);
+    transition: background-color var(--theme-duration) ease;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border: var(--space-2xs) solid var(--bg); // respiro em volta do thumb
+    border-radius: 999px;
+    background: var(--scroll-thumb);
+    background-clip: padding-box;
+    transition: background-color var(--theme-duration) ease;
+
+    &:hover {
+      background: var(--scroll-thumb-hover);
+    }
+  }
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -82,8 +126,8 @@ body {
   font-weight: var(--font-weight-sm);
   -webkit-font-smoothing: antialiased;
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    background-color var(--theme-duration) ease,
+    color var(--theme-duration) ease;
 }
 
 @media (prefers-reduced-motion: reduce) {

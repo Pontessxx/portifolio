@@ -6,7 +6,7 @@
   text-decoration: none;
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-md);
-  transition: color 0.3s ease;
+  transition: color var(--theme-duration) ease;
 
   // linha que desliza da esquerda para a direita
   &::after {

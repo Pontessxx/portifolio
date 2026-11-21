@@ -3,8 +3,8 @@
   background: var(--bg);
   color: var(--fg);
   transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+    background-color var(--theme-duration) ease,
+    color var(--theme-duration) ease;
 
   &__content {
     section[id] {

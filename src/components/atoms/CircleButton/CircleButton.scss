@@ -9,9 +9,9 @@
   text-decoration: none;
   font-size: var(--font-size-lg);
   transition:
-    background-color 0.25s ease-out,
-    color 0.25s ease-out,
-    border-color 0.25s ease-out;
+    background-color var(--theme-duration) ease,
+    color var(--theme-duration) ease,
+    border-color var(--theme-duration) ease;
 
   // preenchido: no hover inverte — fundo some e a seta assume a cor do texto
   &--solid {
