@@ -1,75 +1,70 @@
-# React + TypeScript + Vite
+# Henrique Portfólio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Meu portfólio pessoal: projetos, experiência e contato. Feito do zero, com design e código próprios.
 
-Currently, two official plugins are available:
+Sou desenvolvedor backend .NET e também trabalho com React e TypeScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Páginas
 
-## React Compiler
+- **Home:** apresentação, projetos em destaque (carrossel), sobre, experiência e contato.
+- **Projetos:** lista completa com filtros por tecnologia.
+- **404:** tela para endereços que não existem.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologias
 
-## Expanding the ESLint configuration
+- [React](https://react.dev) 19 e [TypeScript](https://www.typescriptlang.org)
+- [Vite](https://vite.dev)
+- [React Router](https://reactrouter.com)
+- [Sass](https://sass-lang.com) (SCSS com BEM)
+- [lucide-react](https://lucide.dev) para ícones
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Como rodar
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Precisa do [Node.js](https://nodejs.org) instalado.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install     # instala as dependências
+npm run dev     # servidor de desenvolvimento (http://localhost:5173)
+npm run build   # build de produção, na pasta dist
+npm run preview # abre o build localmente
+npm run lint    # verifica o código com o ESLint
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+## Estrutura
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Os componentes seguem o Atomic Design:
 
 ```
+src/
+├── components/
+│   ├── atoms/        # menores peças: PillLink, Tag, Circle, SectionLabel...
+│   ├── molecules/    # combinações de atoms: TagList, ProjectCard, SocialLinks...
+│   ├── organisms/    # blocos de página: Hero, About, Experience, Contact...
+│   └── templates/    # MainLayout (header, conteúdo e rodapé)
+├── pages/            # Home, Projetos, NotFound
+├── data/             # conteúdo do site (projetos, experiência, links, contato)
+├── styles/           # global.scss (variáveis) e mixins
+├── hooks/            # useTheme (tema claro/escuro)
+└── Assets/           # imagens dos projetos
+```
+
+O conteúdo vem de `src/data`: para trocar um texto, um link ou adicionar um projeto, não é preciso mexer nos componentes.
+
+## Padrões de design
+
+Todas as medidas e fontes vêm de variáveis em `src/styles/global.scss`:
+
+- **Espaçamentos:** escala de 8px, de `--space-2xs` (4px) a `--space-7xl` (128px).
+- **Fontes:** `--font-size-xs` a `--font-size-xl`, mais os tamanhos do título animado (`--font-size-tech-*`).
+- **Tema:** claro e escuro, pelas variáveis de cor (`--bg`, `--fg`, `--g1`, `--line`...). A duração da troca fica em `--theme-duration`.
+
+## Licença
+
+Copyright (c) 2026 Henrique Pontes Oliveira. Todos os direitos reservados.
+
+O código pode ser visualizado, mas não pode ser copiado, modificado ou reutilizado sem autorização por escrito. Veja o arquivo [LICENSE](./LICENSE).
+
+## Contato
+
+- GitHub: [Pontessxx](https://github.com/Pontessxx)
+- LinkedIn: [henrique-pontes-oliveira](https://linkedin.com/in/henrique-pontes-oliveira)

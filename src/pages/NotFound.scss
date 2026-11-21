@@ -1,0 +1,43 @@
+// NotFound.scss
+.not-found-page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: clip; // os círculos saem pelas laterais sem criar rolagem horizontal
+}
+
+// o header fica por cima do topo da página, então o conteúdo começa abaixo dele
+.section.not-found {
+  position: relative; // fica por cima dos círculos
+  padding-top: var(--space-7xl);
+}
+
+.not-found {
+  &__title {
+    margin: var(--space-md) 0 0;
+    font-family: var(--font-code);
+    font-size: var(--font-size-tech-big);
+    font-weight: var(--font-weight-big);
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+
+  &__text {
+    margin: var(--space-md) 0 0;
+    font-size: var(--font-size-lg);
+    line-height: 1.65;
+    color: var(--g1);
+  }
+
+  &__em {
+    font-style: italic;
+    font-weight: var(--font-weight-md);
+    color: var(--fg);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+}
