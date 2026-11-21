@@ -12,15 +12,17 @@ type CircleButtonProps = {
   ariaLabel: string
   to?: string
   href?: string
+  variant?: 'solid' | 'outline'
 }
 
-export function CircleButton({ icon, ariaLabel, to, href }: CircleButtonProps) {
+export function CircleButton({ icon, ariaLabel, to, href, variant = 'solid' }: CircleButtonProps) {
   const Icon = icons[icon]
   const content = <Icon size={20} strokeWidth={1.75} aria-hidden="true" />
+  const classes = `circle-button circle-button--${variant}`
 
   if (to) {
     return (
-      <Link to={to} className="circle-button" aria-label={ariaLabel}>
+      <Link to={to} className={classes} aria-label={ariaLabel}>
         {content}
       </Link>
     )
@@ -31,7 +33,7 @@ export function CircleButton({ icon, ariaLabel, to, href }: CircleButtonProps) {
   return (
     <a
       href={href}
-      className="circle-button"
+      className={classes}
       aria-label={ariaLabel}
       target={isWeb ? '_blank' : undefined}
       rel={isWeb ? 'noopener noreferrer' : undefined}

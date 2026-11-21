@@ -1,0 +1,104 @@
+// Card horizontal: imagem à esquerda, texto à direita (empilha no celular)
+.project-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  height: 100%;
+  overflow: hidden;
+  border-radius: 28px;
+  color: var(--fg);
+
+  // "liquid glass": vidro translúcido que desfoca o que está atrás, com brilho nas bordas
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--fg) 12%, transparent),
+    color-mix(in srgb, var(--fg) 4%, transparent)
+  );
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid color-mix(in srgb, var(--fg) 10%, transparent);
+  // o reflexo é sempre branco (com --fg ele viraria uma linha escura no tema claro)
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28), // reflexo na borda de cima
+    inset 0 -1px 0 rgba(255, 255, 255, 0.06),
+    0 20px 50px rgba(0, 0, 0, 0.2); // profundidade
+
+  &__media {
+    position: relative;
+    min-height: 200px;
+    // fallback quando o projeto não tem imagem
+    background:
+      radial-gradient(circle at 25% 30%, color-mix(in srgb, var(--accent) 80%, transparent), transparent 55%),
+      radial-gradient(circle at 75% 75%, color-mix(in srgb, var(--fg) 35%, transparent), transparent 60%),
+      var(--panel);
+
+    img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: clamp(20px, 3vw, 36px);
+  }
+
+  &__count {
+    font-family: var(--font-code);
+    font-size: var(--font-size-sm);
+    color: var(--g1);
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-code);
+    font-size: clamp(20px, 2.4vw, 30px);
+    font-weight: var(--font-weight-big);
+    line-height: 1.2;
+  }
+
+  &__description {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+    color: var(--g1);
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__tag {
+    padding: 3px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: var(--font-code);
+    font-size: 12px;
+    color: var(--g1);
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto; // empurra os botões para o fim do card
+    padding-top: 8px;
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+
+    &__media {
+      min-height: 140px;
+    }
+  }
+}

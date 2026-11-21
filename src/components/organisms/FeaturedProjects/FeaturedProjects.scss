@@ -1,0 +1,124 @@
+.featured {
+  --card-width: clamp(300px, 58vw, 760px); // largura do card em foco
+  --card-gap: clamp(16px, 2.5vw, 32px);
+
+  padding: clamp(32px, 4vw, 48px) 0 clamp(56px, 8vw, 112px);
+  overflow-x: clip; // os cards vizinhos ficam cortados nas bordas da janela
+
+  // mesma largura e margem lateral do conteúdo do Hero
+  &__inner {
+    max-width: calc(var(--container-max) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: 0 var(--gutter);
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--font-code);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-big);
+    color: var(--g1);
+  }
+
+  &__carousel {
+    position: relative;
+    touch-action: pan-y; // arrastar na horizontal troca o card, na vertical rola a página
+    user-select: none;
+  }
+
+  // O card em foco fica sempre no centro: a trilha começa no meio da tela
+  // e anda (card + gap) para cada card que passou.
+  &__track {
+    display: flex;
+    gap: var(--card-gap);
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+    left: 50%;
+    transform: translateX(
+      calc(var(--card-width) / -2 - var(--index) * (var(--card-width) + var(--card-gap)))
+    );
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &__slide {
+    flex: 0 0 var(--card-width);
+    opacity: 0.3; // cards vizinhos esmaecidos
+    transform: scale(0.94);
+    transition:
+      opacity 0.5s ease-out,
+      transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+    cursor: pointer; // vizinho: clicar traz ele para o centro
+
+    &--active {
+      opacity: 1;
+      transform: none;
+      cursor: auto;
+    }
+  }
+
+  &__card {
+    height: 100%;
+  }
+
+  // setas nas bordas da janela, sobre os cards vizinhos
+  &__nav {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid var(--fg);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--bg) 60%, transparent);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: var(--fg);
+    cursor: pointer;
+    transform: translateY(-50%);
+    transition:
+      background-color 0.25s ease-out,
+      color 0.25s ease-out,
+      opacity 0.25s ease-out;
+
+    &:hover:not(:disabled) {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    &--prev {
+      left: var(--gutter);
+    }
+
+    &--next {
+      right: var(--gutter);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__track,
+    &__slide {
+      transition: none;
+    }
+  }
+}

@@ -1,7 +1,6 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100vh; // sem altura, o overflow: hidden corta o círculo
 
   &__content {
     position: relative; // fica por cima do círculo
@@ -58,6 +57,6 @@
   }
 
   &__social {
-    margin-top: clamp(40px, 5vw, 64px);
+    margin-top: clamp(16px, 2.5vw, 32px);
   }
 }

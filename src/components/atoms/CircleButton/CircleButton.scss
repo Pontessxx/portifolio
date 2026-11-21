@@ -6,19 +6,35 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--fg);
-  background: var(--fg);
-  color: var(--bg);
   text-decoration: none;
   font-size: var(--font-size-big);
   transition:
     background-color 0.25s ease-out,
-    color 0.25s ease-out;
+    color 0.25s ease-out,
+    border-color 0.25s ease-out;
 
-  // hover: inverte — fundo some e a seta assume a cor do texto
-  &:hover,
-  &:focus-visible {
+  // preenchido: no hover inverte — fundo some e a seta assume a cor do texto
+  &--solid {
+    border: 1px solid var(--fg);
+    background: var(--fg);
+    color: var(--bg);
+
+    &:hover,
+    &:focus-visible {
+      background: transparent;
+      color: var(--fg);
+    }
+  }
+
+  // só borda e seta, sem fundo; no hover a borda acende
+  &--outline {
+    border: 1px solid var(--line);
     background: transparent;
     color: var(--fg);
+
+    &:hover,
+    &:focus-visible {
+      border-color: var(--fg);
+    }
   }
 }
