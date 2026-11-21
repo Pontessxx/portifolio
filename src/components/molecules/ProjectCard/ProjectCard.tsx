@@ -1,4 +1,5 @@
 import { CircleButton } from '../../atoms/CircleButton/CircleButton'
+import { TagList } from '../TagList/TagList'
 import { PillLink } from '../../atoms/PillLink/PillLink'
 import type { Project } from '../../../data/projects'
 import './ProjectCard.scss'
@@ -31,13 +32,7 @@ export function ProjectCard({ project, index, total, active = false }: ProjectCa
         <h3 className="project-card__title">{title}</h3>
         <p className="project-card__description">{description}</p>
 
-        <ul className="project-card__tags">
-          {tags.map((tag) => (
-            <li key={tag} className="project-card__tag">
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <TagList tags={tags} />
 
         <div className="project-card__actions">
           <PillLink label="Ver projeto" to={to} href={href} variant={variant} />

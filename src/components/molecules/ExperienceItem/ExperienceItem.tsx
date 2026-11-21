@@ -1,4 +1,5 @@
 // src/components/molecules/ExperienceItem/ExperienceItem.tsx
+import { TagList } from '../TagList/TagList'
 import type { ExperienceEntry } from '../../../data/experience'
 import './ExperienceItem.scss'
 
@@ -7,7 +8,7 @@ type ExperienceItemProps = {
 }
 
 export function ExperienceItem({ entry }: ExperienceItemProps) {
-  const { year, period, title, organization, highlights, current } = entry
+  const { year, period, title, organization, highlights, tags, current } = entry
 
   return (
     <article className={`experience-item${current ? ' experience-item--current' : ''}`}>
@@ -29,6 +30,7 @@ export function ExperienceItem({ entry }: ExperienceItemProps) {
             </li>
           ))}
         </ul>
+        <TagList tags={tags} className="experience-item__tags" />
       </div>
     </article>
   )

@@ -5,6 +5,7 @@ export type ExperienceEntry = {
   title: string
   organization: string
   highlights: string[]
+  tags: string[] // tecnologias e temas da experiência
   current?: boolean // o ano fica em destaque (cor cheia)
 }
 
@@ -23,6 +24,7 @@ export const experiences: ExperienceEntry[] = [
       'CI/CD github actions com Backstage em repositórios e segredos no Azure Key Vault',
       'Jira e Confluence para gestão de tarefas, documentação e reuniões diárias'
     ],
+    tags: ['C#', '.NET', 'TypeScript', 'Microsserviços', 'Backstage', 'CI/CD', 'Azure'],
   },
   {
     id: 'bradesco',
@@ -35,6 +37,7 @@ export const experiences: ExperienceEntry[] = [
       'ServiceNow e IMVision Comscope no cabeamento lógico, com automações em Python e SQL',
       'Atuação em projetos de infraestrutura, com foco em cabeamento lógico estruturado',
     ],
+    tags: ['Python', 'ServiceNow', 'Pacote Office', 'Scrum'],
   },
   {
     id: 'fiap',
@@ -48,5 +51,6 @@ export const experiences: ExperienceEntry[] = [
       'Certificações em Cloud (Solution Architect) e Big Data & Analytics',
       'Certificações pela FIAP e Alura'
     ],
+    tags: ['Python', 'Java', 'C#', 'Oracle SQL', 'JavaScript', 'SOLID', 'Clean Architecture'],
   },
 ]

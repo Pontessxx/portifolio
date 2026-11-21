@@ -1,0 +1,11 @@
+// Tag.scss
+.tag {
+  display: inline-block;
+  padding: var(--space-2xs) var(--space-sm);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+  color: var(--g1);
+  white-space: nowrap;
+}

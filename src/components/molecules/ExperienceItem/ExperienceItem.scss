@@ -70,6 +70,10 @@
     hyphens: auto;
   }
 
+  &__tags {
+    margin-top: var(--space-sm);
+  }
+
   &__bullet {
     display: flex;
     gap: var(--space-sm);
