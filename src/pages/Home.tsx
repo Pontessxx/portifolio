@@ -1,3 +1,4 @@
+import { Reveal } from "../components/atoms/Reveal/Reveal";
 import { Hero } from "../components/organisms/Hero/Hero";
 import { FeaturedProjects } from "../components/organisms/FeaturedProjects/FeaturedProjects";
 import { About } from "../components/organisms/About/About";
@@ -8,7 +9,9 @@ export function Home() {
   return (
     <>
       <Hero firstName="Henrique" lastName="Oliveira" />
-      <FeaturedProjects />
+      <Reveal>
+        <FeaturedProjects />
+      </Reveal>
       <About />
       <Experience />
       <Contact />

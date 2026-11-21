@@ -2,5 +2,15 @@
 .experience {
   &__list {
     margin-top: var(--space-2xl);
+
+    // cada item vem dentro de um Reveal, então primeiro/último são do wrapper
+    > .reveal:first-child .experience-item {
+      padding-top: 0;
+      border-top: 0;
+    }
+
+    > .reveal:last-child .experience-item {
+      padding-bottom: 0;
+    }
   }
 }

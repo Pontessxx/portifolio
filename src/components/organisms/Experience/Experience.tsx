@@ -1,4 +1,5 @@
 // src/components/organisms/Experience/Experience.tsx
+import { Reveal } from '../../atoms/Reveal/Reveal'
 import { Section } from '../../atoms/Section/Section'
 import { SectionLabel } from '../../atoms/SectionLabel/SectionLabel'
 import { ExperienceItem } from '../../molecules/ExperienceItem/ExperienceItem'
@@ -11,7 +12,9 @@ export function Experience() {
       <SectionLabel label="experiência" />
       <div className="experience__list">
         {experiences.map((entry) => (
-          <ExperienceItem key={entry.id} entry={entry} />
+          <Reveal key={entry.id}>
+            <ExperienceItem entry={entry} />
+          </Reveal>
         ))}
       </div>
     </Section>

@@ -6,15 +6,6 @@
   padding: var(--space-xl) 0 var(--space-3xl);
   border-top: 1px solid var(--line);
 
-  &:first-child {
-    padding-top: 0;
-    border-top: 0;
-  }
-
-  &:last-child {
-    padding-bottom: 0;
-  }
-
   &__year {
     display: block;
     font-family: var(--font-code);

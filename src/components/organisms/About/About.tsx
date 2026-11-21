@@ -1,4 +1,5 @@
 // src/components/organisms/About/About.tsx
+import { Reveal } from '../../atoms/Reveal/Reveal'
 import { Section } from '../../atoms/Section/Section'
 import { PhotoFrame } from '../../molecules/PhotoFrame/PhotoFrame'
 import { InfoList } from '../../molecules/InfoList/InfoList'
@@ -15,20 +16,24 @@ export function About() {
       </div>
       <div className="about">
         <div className="about__side">
-          <div className="about__photo">
-            <PhotoFrame src={contact.avatar} alt="Foto do Henrique" />
-          </div>
+          <Reveal>
+            <div className="about__photo">
+              <PhotoFrame src={contact.avatar} alt="Foto do Henrique" />
+            </div>
+          </Reveal>
         </div>
 
         <div className="about__main">
-          <p className="about__headline">
-            Olá, eu sou o Henrique, <em className="about__em">desenvolvedor backend .NET</em>. Também
-            desenvolvo em <em className="about__em">React e TypeScript</em>.
-          </p>
-          <p className="about__hobbies">Fora do código: boxe, vôlei, academia e guitarra.</p>
-          <div className="about__info">
-            <InfoList items={aboutInfo} />
-          </div>
+          <Reveal delay={150}>
+            <p className="about__headline">
+              Olá, eu sou o Henrique, <em className="about__em">desenvolvedor backend .NET</em>. Também
+              desenvolvo em <em className="about__em">React e TypeScript</em>.
+            </p>
+            <p className="about__hobbies">Fora do código: boxe, vôlei, academia e guitarra.</p>
+            <div className="about__info">
+              <InfoList items={aboutInfo} />
+            </div>
+          </Reveal>
         </div>
       </div>
     </Section>
