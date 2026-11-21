@@ -1,7 +1,7 @@
 .nav-menu {
   &__list {
     display: flex;
-    gap: 36px;
+    gap: 28px; // + 20px de padding dos itens = ~48px de espaço visual entre os textos
     margin: 0;
     padding: 0;
     list-style: none;

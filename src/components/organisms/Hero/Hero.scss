@@ -6,6 +6,28 @@
 
   &__content {
     position: relative; // fica por cima do círculo
-    padding-top: 96px; // espaço do header sobreposto
+    max-width: calc(var(--container-max) + var(--gutter) * 2);
+    margin: 0 auto;
+    padding: 96px var(--gutter) 0; // topo: espaço do header; lados: mesma margem do header
+  }
+
+  // TechText é um canvas que preenche 100% do container, então precisa de largura e altura
+  &__title {
+    margin: 0;
+  }
+
+  // Cada linha ocupa a largura toda (o canvas é o limite de arraste das letras).
+  // O canvas tem 5% de margem interna: com width = 100%/0.9 e margem negativa de 5%
+  // do próprio canvas, o texto continua alinhado com o conteúdo.
+  &__title-line {
+    display: block;
+    width: 111.11%;
+    margin-left: -5.56%;
+    font-size: var(--font-size-tech-big); // base do "em" abaixo (mesmo valor do TechText)
+    height: 1.8em; // altura generosa: o canvas corta o que sai dele, sobra espaço para arrastar
+
+    &--right {
+      margin-top: -0.85em; // aproxima as duas linhas
+    }
   }
 }
