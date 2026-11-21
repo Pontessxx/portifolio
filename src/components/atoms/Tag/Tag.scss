@@ -1,6 +1,8 @@
 // Tag.scss
 .tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
   padding: var(--space-2xs) var(--space-sm);
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -8,4 +10,11 @@
   font-size: var(--font-size-xs);
   color: var(--g1);
   white-space: nowrap;
+
+  &__dot {
+    width: var(--space-xs);
+    height: var(--space-xs);
+    border-radius: 50%;
+    background: var(--tag-dot);
+  }
 }

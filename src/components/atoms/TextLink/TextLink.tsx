@@ -1,13 +1,13 @@
 // src/components/atoms/TextLink/TextLink.tsx
 import { Link } from 'react-router-dom'
-import { ArrowUp } from 'lucide-react'
+import { ArrowLeft, ArrowUp } from 'lucide-react'
 import './TextLink.scss'
 
 type TextLinkProps = {
   label: string
   to?: string // rota interna (ex.: '/#hero')
   href?: string // link externo ou mailto:
-  arrow?: 'up'
+  arrow?: 'up' | 'left'
   className?: string
 }
 
@@ -16,6 +16,7 @@ export function TextLink({ label, to, href, arrow, className = '' }: TextLinkPro
   const classes = `text-link ${className}`.trim()
   const content = (
     <>
+      {arrow === 'left' && <ArrowLeft size={16} strokeWidth={1.75} aria-hidden="true" />}
       {label}
       {arrow === 'up' && <ArrowUp size={16} strokeWidth={1.75} aria-hidden="true" />}
     </>

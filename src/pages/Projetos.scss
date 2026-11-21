@@ -1,0 +1,44 @@
+// Projetos.scss
+.projetos-page {
+  position: relative;
+  overflow-x: clip; // os círculos saem pelas laterais sem criar rolagem horizontal
+}
+
+// o header fica por cima do topo da página, então o conteúdo começa abaixo dele
+.section.projetos {
+  position: relative; // fica por cima dos círculos
+  padding-top: var(--space-7xl);
+}
+
+.projetos {
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-md) var(--space-4xl);
+  }
+
+  &__title {
+    margin: var(--space-md) 0 0;
+    font-family: var(--font-code);
+    font-size: var(--font-size-tech-big);
+    font-weight: var(--font-weight-big);
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+
+  &__lead {
+    max-width: 320px;
+    margin: 0;
+    font-size: var(--font-size-lg);
+    line-height: 1.65;
+    color: var(--g1);
+  }
+
+  &__em {
+    font-style: italic;
+    font-weight: var(--font-weight-md);
+    color: var(--fg);
+  }
+}

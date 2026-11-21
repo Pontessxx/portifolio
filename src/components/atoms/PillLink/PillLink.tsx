@@ -12,6 +12,8 @@ type PillLinkProps = {
   arrow?: 'right' | 'up-right'
   icon?: ReactNode // ícone antes do texto (ex.: ícone da marca)
   iconHoverColor?: string // cor do ícone no hover (ex.: cor da marca)
+  onClick?: () => void // sem to/href vira botão (ex.: filtros)
+  pressed?: boolean // estado do botão: marcado fica preenchido
   className?: string
 }
 
@@ -24,6 +26,8 @@ export function PillLink({
   arrow,
   icon,
   iconHoverColor,
+  onClick,
+  pressed,
   className = '',
 }: PillLinkProps) {
   const classes = `pill-link pill-link--${variant} pill-link--${size} ${className}`.trim()
@@ -37,6 +41,15 @@ export function PillLink({
       {Icon && <Icon size={16} strokeWidth={1.75} aria-hidden="true" />}
     </>
   )
+
+  if (onClick) {
+    const buttonClasses = `pill-link pill-link--${pressed ? 'solid' : variant} pill-link--${size} ${className}`.trim()
+    return (
+      <button type="button" className={buttonClasses} style={style} onClick={onClick} aria-pressed={pressed}>
+        {content}
+      </button>
+    )
+  }
 
   if (to) {
     return (

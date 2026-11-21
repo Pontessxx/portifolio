@@ -1,0 +1,31 @@
+// ProjectsList.scss
+.projects-list {
+  &__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm) var(--space-md);
+    margin-top: var(--space-4xl);
+  }
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  &__count {
+    margin: 0;
+    font-family: var(--font-code);
+    font-size: var(--font-size-sm);
+    color: var(--g1);
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+}
