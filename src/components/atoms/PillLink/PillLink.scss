@@ -1,0 +1,41 @@
+.pill-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-md);
+  cursor: pointer;
+
+  // ícone do lucide: herda a cor do texto (stroke="currentColor") e não encolhe no flex
+  svg {
+    flex: 0 0 auto;
+  }
+
+  &:hover {
+    border-color: var(--fg);
+  }
+
+  &--solid {
+    background: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+  }
+
+  &--static {
+    color: var(--g1);
+    cursor: default;
+
+    &:hover {
+      border-color: var(--line);
+    }
+  }
+}

@@ -1,6 +1,7 @@
 // src/components/organisms/Hero/Hero.tsx
 import { Circle } from '../../atoms/Circle/Circle'
 import TechText from '../../atoms/TechText/TechText'
+import { StatusBadge } from '../../molecules/StatusBadge/StatusBadge'
 import './Hero.scss'
 
 const CIRCLE_SIZE = 'clamp(320px, 43vw, 620px)'
@@ -21,6 +22,7 @@ export function Hero({ firstName, lastName }: HeroProps) {
     <section id="hero" className="hero">
       <Circle size={CIRCLE_SIZE} top={`calc(${CIRCLE_SIZE} * -0.34)`} right="-9%" />
       <div className="hero__content">
+        <StatusBadge label="Desenvolvedor .NET" />
         <h1 className="hero__title" aria-label={`${firstName} ${lastName}`}>
           <span className="hero__title-line">
             <TechText text={firstName} align="left" {...TITLE_PROPS} />

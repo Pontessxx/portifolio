@@ -8,12 +8,13 @@
     position: relative; // fica por cima do círculo
     max-width: calc(var(--container-max) + var(--gutter) * 2);
     margin: 0 auto;
-    padding: 96px var(--gutter) 0; // topo: espaço do header; lados: mesma margem do header
+    padding: 120px var(--gutter) 0; // topo: header (96px) + respiro; lados: mesma margem do header
   }
 
   // TechText é um canvas que preenche 100% do container, então precisa de largura e altura
   &__title {
-    margin: 0;
+    // sobe o título: o canvas tem espaço vazio em cima (altura 1.8em com o texto centralizado)
+    margin: calc(var(--font-size-tech-big) * -0.3) 0 0;
   }
 
   // Cada linha ocupa a largura toda (o canvas é o limite de arraste das letras).

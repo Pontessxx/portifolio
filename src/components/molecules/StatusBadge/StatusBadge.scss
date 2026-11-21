@@ -1,0 +1,17 @@
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-family: var(--font-code);
+  font-size: var(--font-size-sm);
+  color: var(--g1);
+
+  &__dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--fg);
+  }
+}
