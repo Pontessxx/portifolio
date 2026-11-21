@@ -1,0 +1,23 @@
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg);
+  font-family: 'Open Sans', system-ui, sans-serif;
+  font-style: italic;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition:
+    border-color 0.25s ease,
+    color 0.3s ease,
+    background-color 0.3s ease;
+
+  &:hover {
+    border-color: var(--fg);
+  }
+}

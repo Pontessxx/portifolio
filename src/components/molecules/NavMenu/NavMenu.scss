@@ -1,0 +1,13 @@
+.nav-menu {
+  &__list {
+    display: flex;
+    gap: 36px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 720px) {
+    display: none;
+  }
+}

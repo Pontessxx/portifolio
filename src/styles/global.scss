@@ -1,0 +1,65 @@
+:root,
+:root[data-theme='dark'] {
+  --bg: #121212;
+  --fg: #f5f5f5;
+  --g1: #a6a6a6;
+  --line: #4a4a4a;
+  --panel: #1b1b1b;
+  --inv-bg: #f5f5f5;
+  --inv-fg: #121212;
+  --inv-g: #555555;
+  --accent: #7123a2;
+}
+
+:root[data-theme='light'] {
+  --bg: #f5f5f5;
+  --fg: #121212;
+  --g1: #555555;
+  --line: #bdbdbd;
+  --panel: #e8e8e8;
+  --inv-bg: #121212;
+  --inv-fg: #f5f5f5;
+  --inv-g: #a6a6a6;
+  --accent: #7123a2;
+}
+
+:root {
+  // famílias
+  --font-body: 'Open Sans', system-ui, sans-serif;
+  --font-code: 'Fira Code', ui-monospace, monospace;
+
+  // tamanhos
+  --font-size-sm: 13px;
+  --font-size-md: 15px;
+  --font-size-big: 18px;
+
+  // pesos
+  --font-weight-sm: 300;
+  --font-weight-md: 400;
+  --font-weight-big: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-sm);
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}

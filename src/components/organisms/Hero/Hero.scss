@@ -1,0 +1,11 @@
+// Hero.scss
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh; // sem altura, o overflow: hidden corta o círculo
+
+  &__content {
+    position: relative; // fica por cima do círculo
+    padding-top: 96px; // espaço do header sobreposto
+  }
+}

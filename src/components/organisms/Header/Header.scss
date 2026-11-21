@@ -1,0 +1,26 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: transparent;
+  margin-bottom: -96px; // sobrepõe o topo do Hero (altura do header)
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 96px;
+    padding: 0 clamp(20px, 4vw, 56px);
+  }
+
+  &__logo {
+    color: var(--fg);
+    text-decoration: none;
+    font-family: var(--font-code);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-md);
+    line-height: 1.35;
+    transition: color 0.3s ease;
+  }
+}
