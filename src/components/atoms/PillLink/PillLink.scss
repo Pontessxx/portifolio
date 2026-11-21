@@ -24,8 +24,19 @@
     flex: 0 0 auto;
   }
 
+  // ícone da marca: na cor do texto, e na cor da marca (--icon-hover) ao passar o mouse
+  &__icon {
+    display: inline-flex;
+    transition: color 0.25s ease-out;
+  }
+
+  &:hover &__icon {
+    color: var(--icon-hover, inherit);
+  }
+
+  // borda também ganha a cor da marca (--icon-hover); sem ela usa a cor do texto
   &:hover {
-    border-color: var(--fg);
+    border-color: var(--icon-hover, var(--fg));
   }
 
   &--solid {
