@@ -4,7 +4,7 @@
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   height: 100%;
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 32px;
   color: var(--fg);
 
   // "liquid glass": vidro translúcido que desfoca o que está atrás, com brilho nas bordas
@@ -43,8 +43,8 @@
   &__body {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding: clamp(20px, 3vw, 36px);
+    gap: var(--space-sm);
+    padding: clamp(24px, 3vw, 40px);
   }
 
   &__count {
@@ -56,7 +56,7 @@
   &__title {
     margin: 0;
     font-family: var(--font-code);
-    font-size: clamp(20px, 2.4vw, 30px);
+    font-size: var(--font-size-card-title);
     font-weight: var(--font-weight-big);
     line-height: 1.2;
   }
@@ -71,34 +71,34 @@
   &__tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: var(--space-xs);
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
   &__tag {
-    padding: 3px 12px;
+    padding: var(--space-2xs) var(--space-sm);
     border: 1px solid var(--line);
     border-radius: 999px;
     font-family: var(--font-code);
-    font-size: 12px;
+    font-size: var(--font-size-xs);
     color: var(--g1);
   }
 
   &__actions {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: var(--space-sm);
     margin-top: auto; // empurra os botões para o fim do card
-    padding-top: 8px;
+    padding-top: var(--space-xs);
   }
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
 
     &__media {
-      min-height: 140px;
+      min-height: 144px;
     }
   }
 }

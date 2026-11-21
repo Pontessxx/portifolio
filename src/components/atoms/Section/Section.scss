@@ -1,0 +1,6 @@
+// Section.scss
+.section {
+  max-width: calc(var(--container-max) + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 96px) var(--gutter) 0;
+}

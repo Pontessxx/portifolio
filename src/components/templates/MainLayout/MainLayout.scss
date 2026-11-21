@@ -8,7 +8,7 @@
 
   &__content {
     section[id] {
-      scroll-margin-top: 96px; // altura do header sticky
+      scroll-margin-top: var(--space-6xl); // altura do header sticky
     }
   }
 }

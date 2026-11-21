@@ -8,6 +8,7 @@ type PillLinkProps = {
   to?: string
   href?: string
   variant?: 'outline' | 'solid'
+  size?: 'sm' | 'md' | 'lg' // altura: sm = --space-xl (40), md = --space-2xl (48), lg = --space-3xl (56)
   arrow?: 'right' | 'up-right'
   icon?: ReactNode // ícone antes do texto (ex.: ícone da marca)
   iconHoverColor?: string // cor do ícone no hover (ex.: cor da marca)
@@ -19,12 +20,13 @@ export function PillLink({
   to,
   href,
   variant = 'outline',
+  size = 'sm',
   arrow,
   icon,
   iconHoverColor,
   className = '',
 }: PillLinkProps) {
-  const classes = `pill-link pill-link--${variant} ${className}`.trim()
+  const classes = `pill-link pill-link--${variant} pill-link--${size} ${className}`.trim()
   const style = iconHoverColor ? ({ '--icon-hover': iconHoverColor } as CSSProperties) : undefined
   const Icon = arrow === 'right' ? ArrowRight : arrow === 'up-right' ? ArrowUpRight : null
 

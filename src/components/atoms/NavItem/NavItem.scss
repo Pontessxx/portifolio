@@ -1,7 +1,7 @@
 .nav-item {
   position: relative;
   display: inline-block;
-  padding: 14px 10px; // área segura de clique (~44px de altura)
+  padding: var(--space-sm) var(--space-xs); // área segura de clique (~48px de altura)
   color: var(--fg);
   text-decoration: none;
   font-size: var(--font-size-md);
@@ -12,9 +12,9 @@
   &::after {
     content: '';
     position: absolute;
-    left: 10px; // alinha com o texto, ignorando o padding
-    right: 10px;
-    bottom: 8px;
+    left: var(--space-xs); // alinha com o texto, ignorando o padding
+    right: var(--space-xs);
+    bottom: var(--space-xs);
     height: 1px;
     background: currentColor;
     transform: scaleX(0);

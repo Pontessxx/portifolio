@@ -1,0 +1,17 @@
+// PhotoFrame.scss
+.photo-frame {
+  position: relative;
+  width: min(336px, 100%);
+
+  &__card {
+    position: relative; // fica por cima do círculo
+  }
+
+  &__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}

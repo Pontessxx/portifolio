@@ -22,6 +22,7 @@ export function Hero({ firstName, lastName }: HeroProps) {
   return (
     <section id="hero" className="hero">
       <Circle size={CIRCLE_SIZE} top={`calc(${CIRCLE_SIZE} * -0.34)`} right="-9%" />
+      <Circle size={`calc(${CIRCLE_SIZE} * 0.5)`} bottom={`calc(${CIRCLE_SIZE} * 0.04)`} left="-7%" />
       <div className="hero__content">
         <StatusBadge label="Desenvolvedor .NET" />
         <h1 className="hero__title" aria-label={`${firstName} ${lastName}`}>

@@ -1,7 +1,7 @@
 .status-badge {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: var(--space-xs);
   margin: 0;
   font-family: var(--font-code);
   font-size: var(--font-size-sm);
@@ -9,8 +9,8 @@
 
   &__dot {
     display: inline-block;
-    width: 10px;
-    height: 10px;
+    width: var(--space-xs);
+    height: var(--space-xs);
     border-radius: 50%;
     background: var(--fg);
   }

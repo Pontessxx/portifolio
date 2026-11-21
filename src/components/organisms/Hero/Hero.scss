@@ -6,7 +6,7 @@
     position: relative; // fica por cima do círculo
     max-width: calc(var(--container-max) + var(--gutter) * 2);
     margin: 0 auto;
-    padding: 120px var(--gutter) 0; // topo: header (96px) + respiro; lados: mesma margem do header
+    padding: 128px var(--gutter) 0; // topo: header (96px) + respiro; lados: mesma margem do header
   }
 
   // TechText é um canvas que preenche 100% do container, então precisa de largura e altura
@@ -37,7 +37,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 28px 48px;
+    gap: var(--space-lg) var(--space-2xl);
     // sobe a linha: o canvas do título tem espaço vazio embaixo (altura 1.8em com o texto centralizado)
     margin-top: calc(clamp(32px, 4vw, 56px) - var(--font-size-tech-big) * 0.3);
   }
@@ -45,7 +45,7 @@
   &__description {
     max-width: 36ch;
     margin: 0;
-    font-size: var(--font-size-big);
+    font-size: var(--font-size-lg);
     line-height: 1.65;
     color: var(--g1);
   }

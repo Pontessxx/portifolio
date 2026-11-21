@@ -1,9 +1,9 @@
 .pill-link {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 22px;
+  gap: var(--space-xs);
+  min-height: var(--space-xl);
+  padding: 0 var(--space-md);
   border: 1px solid var(--line);
   border-radius: 999px;
   background: transparent;
@@ -37,6 +37,18 @@
   // borda também ganha a cor da marca (--icon-hover); sem ela usa a cor do texto
   &:hover {
     border-color: var(--icon-hover, var(--fg));
+  }
+
+  &--sm {
+    min-height: var(--space-xl);
+  }
+
+  &--md {
+    min-height: var(--space-2xl);
+  }
+
+  &--lg {
+    min-height: var(--space-3xl);
   }
 
   &--solid {

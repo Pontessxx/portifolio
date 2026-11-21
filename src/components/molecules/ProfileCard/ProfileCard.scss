@@ -1,0 +1,362 @@
+// ProfileCard.scss
+// Tema: as variáveis --pc-* abaixo seguem o data-theme do site (dark/light).
+.profile-card {
+  // estado animado pelo JS
+  --pc-light-x: 50%;
+  --pc-light-y: 50%;
+  --pc-pointer-x: 50%;
+  --pc-pointer-y: 50%;
+  --pc-band-x: 50%;
+  --pc-band-y: 50%;
+  --pc-reach: 0;
+  --pc-rotate-x: 0deg;
+  --pc-rotate-y: 0deg;
+  --pc-shift-x: 0px;
+  --pc-shift-y: 0px;
+  --pc-tilt: 0;
+  --pc-active: 0;
+
+  // tema escuro (padrão)
+  --pc-frame: rgba(38, 35, 46, 0.66);
+  --pc-frame-edge: rgba(255, 255, 255, 0.08);
+  --pc-frame-highlight: rgba(255, 255, 255, 0.07);
+  --pc-frame-shadow: 0 22px 44px -20px rgba(0, 0, 0, 0.8), 0 6px 16px -8px rgba(0, 0, 0, 0.5);
+  --pc-tile: linear-gradient(180deg, #3a3644 0%, #27242f 100%);
+  --pc-tile-edge: rgba(255, 255, 255, 0.07);
+  --pc-tile-highlight: rgba(255, 255, 255, 0.12);
+  --pc-tile-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.7);
+  --pc-ink: #f4f4f5;
+  --pc-muted: rgba(244, 244, 245, 0.6);
+  --pc-hover: brightness(1.12);
+  --pc-press: brightness(0.8);
+  --pc-shade: rgba(0, 0, 0, 0.4);
+  --pc-blend: color-dodge;
+  --pc-holo-filter: hue-rotate(0deg);
+  --pc-sheen: rgba(255, 255, 255, 0.16);
+
+  position: relative;
+  width: 100%;
+  perspective: 1000px;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+
+  &__body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-xs);
+    border-radius: calc(var(--pc-radius) + 8px);
+    background: var(--pc-frame);
+    box-shadow: var(--pc-frame-shadow);
+    backdrop-filter: blur(20px) saturate(1.6);
+    transform: rotateX(var(--pc-rotate-x)) rotateY(var(--pc-rotate-y));
+    will-change: transform;
+  }
+
+  &__tile {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    border-radius: var(--pc-radius);
+    background: var(--pc-tile);
+    box-shadow: var(--pc-tile-shadow);
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  &__sheen,
+  &__holo,
+  &__scrim,
+  &__tile-rim,
+  &__glare,
+  &__shade,
+  &__rim {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+
+  &__sheen {
+    background: radial-gradient(
+      farthest-corner circle at calc(var(--pc-light-x) - 10px) calc(var(--pc-light-y) - 10px),
+      var(--pc-sheen) 0%,
+      transparent 55%
+    );
+    opacity: calc(var(--pc-holo) * var(--pc-active));
+  }
+
+  &__holo {
+    --pc-spectrum: repeating-linear-gradient(
+      0deg,
+      hsl(2, 100%, 73%) 5%,
+      hsl(53, 100%, 69%) 10%,
+      hsl(93, 100%, 69%) 15%,
+      hsl(176, 100%, 76%) 20%,
+      hsl(228, 100%, 74%) 25%,
+      hsl(260, 100%, 76%) 30%,
+      hsl(2, 100%, 73%) 35%
+    );
+    --pc-bars: repeating-linear-gradient(
+      -45deg,
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    );
+    --pc-falloff: radial-gradient(
+      farthest-corner circle at var(--pc-pointer-x) var(--pc-pointer-y),
+      hsla(0, 0%, 0%, 0.1) 12%,
+      hsla(0, 0%, 0%, 0.15) 20%,
+      hsla(0, 0%, 0%, 0.25) 120%
+    );
+    background-image: var(--pc-spectrum), var(--pc-bars), var(--pc-falloff);
+    background-position:
+      0 var(--pc-band-y),
+      var(--pc-band-x) var(--pc-band-y),
+      center;
+    background-size: 500% 500%, 300% 300%, 200% 200%;
+    background-blend-mode: color, hard-light;
+    mix-blend-mode: var(--pc-blend);
+    filter: brightness(calc(0.66 + 0.19 * var(--pc-active))) contrast(calc(1.33 + 0.17 * var(--pc-active)))
+      saturate(calc(0.33 + 0.17 * var(--pc-active))) var(--pc-holo-filter);
+    opacity: calc(var(--pc-holo) * var(--pc-holo-gain) * (0.5 + 0.5 * var(--pc-active)));
+    mask-image: var(--pc-pattern);
+    mask-size: var(--pc-pattern-size);
+    mask-position: calc(50% - var(--pc-shift-x) * 1.5) calc(65% - var(--pc-shift-y) * 1.5);
+    mask-repeat: repeat;
+  }
+
+  &__holo-glow,
+  &__holo-shift {
+    position: absolute;
+    inset: 0;
+    opacity: calc(var(--pc-active) * var(--pc-holo-detail));
+  }
+
+  &__holo-glow {
+    background-image:
+      linear-gradient(
+        45deg,
+        hsl(176, 100%, 76%),
+        hsl(228, 100%, 74%),
+        hsl(260, 100%, 76%),
+        hsl(2, 100%, 73%),
+        hsl(53, 100%, 69%),
+        hsl(93, 100%, 69%)
+      ),
+      radial-gradient(circle at var(--pc-pointer-x) var(--pc-pointer-y), hsl(0, 0%, 70%) 0%, hsla(0, 0%, 30%, 0.2) 90%),
+      var(--pc-grain);
+    background-size: 250% 250%, 100% 100%, 220px 220px;
+    background-position:
+      var(--pc-pointer-x) var(--pc-pointer-y),
+      center,
+      0 0;
+    background-blend-mode: color-dodge;
+    filter: brightness(calc(2 - var(--pc-reach))) contrast(calc(var(--pc-reach) + 2))
+      saturate(calc(0.5 + var(--pc-reach)));
+    mix-blend-mode: luminosity;
+  }
+
+  &__holo-shift {
+    background-image: var(--pc-spectrum), var(--pc-bars), var(--pc-falloff);
+    background-position:
+      0 var(--pc-band-y),
+      calc(var(--pc-band-x) * 0.4) calc(var(--pc-band-y) * 0.5),
+      center;
+    background-size: 200% 300%, 700% 700%, 100% 100%;
+    background-blend-mode: color, hard-light;
+    mix-blend-mode: difference;
+    filter: brightness(0.8) contrast(1.5);
+  }
+
+  &__photo {
+    position: absolute;
+    inset: calc(var(--pc-parallax) * -1);
+    width: calc(100% + var(--pc-parallax) * 2);
+    height: calc(100% + var(--pc-parallax) * 2);
+    object-fit: cover;
+    object-position: center bottom;
+    transform: translate3d(var(--pc-shift-x), var(--pc-shift-y), 0);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &__scrim {
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.5) 12%,
+      rgba(0, 0, 0, 0.28) 26%,
+      rgba(0, 0, 0, 0.07) 40%,
+      rgba(0, 0, 0, 0) 52%
+    );
+  }
+
+  &__info {
+    position: absolute;
+    left: var(--space-md);
+    right: var(--space-md);
+    bottom: var(--space-md);
+    color: #fff;
+  }
+
+  &__name {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semi);
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: inherit;
+  }
+
+  &__title {
+    margin: var(--space-2xs) 0 0;
+    font-size: var(--font-size-md);
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  &__tile-rim {
+    box-shadow:
+      inset 0 0 0 1px var(--pc-tile-edge),
+      inset 0 1px 0 var(--pc-tile-highlight);
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    min-width: 0;
+    padding: var(--space-xs) var(--space-md);
+  }
+
+  &__meta {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    min-width: 0;
+  }
+
+  &__handle {
+    overflow: hidden;
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semi);
+    line-height: 1.25;
+    color: var(--pc-ink);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-size-xs);
+    line-height: 1.25;
+    color: var(--pc-muted);
+    white-space: nowrap;
+
+    &::before {
+      content: '';
+      flex: none;
+      width: var(--space-xs);
+      height: var(--space-xs);
+      border-radius: 50%;
+      background: var(--pc-status);
+    }
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    flex: none;
+    height: var(--space-xl);
+    padding: 0 var(--space-sm);
+    border: none;
+    border-radius: calc(var(--pc-radius) * 0.75);
+    background: var(--pc-tile);
+    box-shadow:
+      inset 0 0 0 1px var(--pc-tile-edge),
+      inset 0 1px 0 var(--pc-tile-highlight),
+      var(--pc-tile-shadow);
+    color: var(--pc-ink);
+    font-family: inherit;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semi);
+    cursor: pointer;
+    transition:
+      filter 0.2s ease,
+      transform 0.2s ease;
+
+    &:active {
+      filter: var(--pc-press);
+      transform: scale(0.96);
+      transition-duration: 0s;
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--pc-ink);
+      outline-offset: 2px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        filter: var(--pc-hover);
+      }
+      &:hover:active {
+        filter: var(--pc-press);
+      }
+    }
+  }
+
+  &__glare {
+    background: radial-gradient(
+      farthest-corner circle at var(--pc-light-x) var(--pc-light-y),
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.36) 20%,
+      rgba(255, 255, 255, 0) 60%
+    );
+    mix-blend-mode: overlay;
+    opacity: calc(var(--pc-glare) * var(--pc-active));
+  }
+
+  &__shade {
+    background: radial-gradient(
+      farthest-corner circle at var(--pc-light-x) var(--pc-light-y),
+      transparent 30%,
+      var(--pc-shade) 100%
+    );
+    opacity: calc(var(--pc-glare) * var(--pc-tilt));
+  }
+
+  &__rim {
+    box-shadow:
+      inset 0 0 0 1px var(--pc-frame-edge),
+      inset 0 1px 0 var(--pc-frame-highlight);
+  }
+}
+
+// tema claro
+:root[data-theme='light'] .profile-card {
+  --pc-frame: rgba(240, 240, 243, 0.8);
+  --pc-frame-edge: rgba(24, 24, 27, 0.07);
+  --pc-frame-highlight: rgba(255, 255, 255, 0.95);
+  --pc-frame-shadow: 0 22px 44px -22px rgba(24, 24, 27, 0.3), 0 6px 16px -10px rgba(24, 24, 27, 0.16);
+  --pc-tile: linear-gradient(180deg, #ffffff 0%, #f6f6f8 100%);
+  --pc-tile-edge: rgba(24, 24, 27, 0.08);
+  --pc-tile-highlight: rgba(255, 255, 255, 1);
+  --pc-tile-shadow: 0 4px 10px -5px rgba(24, 24, 27, 0.25);
+  --pc-ink: #27272a;
+  --pc-muted: rgba(39, 39, 42, 0.6);
+  --pc-hover: brightness(0.97);
+  --pc-press: brightness(0.92);
+  --pc-shade: rgba(24, 24, 27, 0.14);
+  --pc-blend: multiply;
+  --pc-holo-filter: invert(1) hue-rotate(180deg);
+  --pc-sheen: rgba(255, 255, 255, 0);
+}

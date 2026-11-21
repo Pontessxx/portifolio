@@ -29,13 +29,31 @@
   --font-code: 'Fira Code', ui-monospace, monospace;
 
   // tamanhos
-  --font-size-sm: 13px;
-  --font-size-md: 15px;
-  --font-size-big: 18px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+  --font-size-title: clamp(24px, 3.2vw, 48px); // títulos de seção (ex.: Olá do Sobre)
+  --font-size-card-title: clamp(24px, 2.4vw, 32px); // título dos cards de projeto
+
+  // espaçamentos e tamanhos de controles: escala de 8px: xs = 8, sm = 16, md = 24, lg = 32, xl = 40 e assim por diante
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 40px; // controle pequeno
+  --space-2xl: 48px; // controle médio
+  --space-3xl: 56px; // controle grande
+  --space-4xl: 64px;
+  --space-5xl: 80px;
+  --space-6xl: 96px;
+  --space-7xl: 128px;
 
   // container: largura máxima do conteúdo e margem lateral (header e seções seguem os dois)
   --container-max: 1200px;
-  --gutter: clamp(20px, 4vw, 56px);
+  --gutter: clamp(24px, 4vw, 56px);
 
   // TechText (canvas): tamanhos responsivos.
   // O máximo acompanha o --container-max (big ≈ 17% da largura do container).
@@ -46,6 +64,7 @@
   // pesos
   --font-weight-sm: 300;
   --font-weight-md: 400;
+  --font-weight-semi: 600;
   --font-weight-big: 700;
   --font-weight-tech: 400;
 }

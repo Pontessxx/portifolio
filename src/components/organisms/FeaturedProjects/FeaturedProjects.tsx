@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import type { CSSProperties, PointerEvent } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { SectionLabel } from '../../atoms/SectionLabel/SectionLabel'
 import { PillLink } from '../../atoms/PillLink/PillLink'
 import { ProjectCard } from '../../molecules/ProjectCard/ProjectCard'
 import { featuredProjects } from '../../../data/projects'
@@ -41,7 +42,7 @@ export function FeaturedProjects() {
     <section id="projetos-destaque" className="featured">
       <div className="featured__inner">
         <header className="featured__header">
-          <h2 className="featured__title">// projetos em destaque</h2>
+          <SectionLabel label="projetos em destaque" />
           <PillLink label="Ver todos" to="/projetos" arrow="right" />
         </header>
       </div>

@@ -1,16 +1,16 @@
 .theme-toggle {
   display: inline-flex;
   align-items: center;
-  min-height: 44px;
-  padding: 0 22px;
+  min-height: var(--space-xl);
+  padding: 0 var(--space-md);
   border: 1px solid var(--line);
   border-radius: 999px;
   background: transparent;
   color: var(--fg);
-  font-family: 'Open Sans', system-ui, sans-serif;
+  font-family: var(--font-body);
   font-style: italic;
-  font-size: 14px;
-  font-weight: 400;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-md);
   cursor: pointer;
   transition:
     border-color 0.25s ease,

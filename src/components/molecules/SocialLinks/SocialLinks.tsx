@@ -11,6 +11,7 @@ export function SocialLinks() {
           <PillLink
             label={link.label}
             href={link.href}
+            size="sm"
             arrow={link.arrow}
             icon={link.icon && <BrandIcon name={link.icon} />}
             iconHoverColor={link.iconHoverColor}

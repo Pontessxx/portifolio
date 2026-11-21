@@ -1,8 +1,8 @@
 .featured {
-  --card-width: clamp(300px, 58vw, 760px); // largura do card em foco
+  --card-width: clamp(304px, 58vw, 760px); // largura do card em foco
   --card-gap: clamp(16px, 2.5vw, 32px);
 
-  padding: clamp(32px, 4vw, 48px) 0 clamp(56px, 8vw, 112px);
+  padding: clamp(32px, 4vw, 48px) 0 clamp(24px, 3vw, 40px);
   overflow-x: clip; // os cards vizinhos ficam cortados nas bordas da janela
 
   // mesma largura e margem lateral do conteúdo do Hero
@@ -16,16 +16,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    margin-bottom: 24px;
-  }
-
-  &__title {
-    margin: 0;
-    font-family: var(--font-code);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-big);
-    color: var(--g1);
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
   }
 
   &__carousel {
@@ -80,8 +72,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
-    height: 48px;
+    width: var(--space-xl);
+    height: var(--space-xl);
     padding: 0;
     border: 1px solid var(--fg);
     border-radius: 50%;
