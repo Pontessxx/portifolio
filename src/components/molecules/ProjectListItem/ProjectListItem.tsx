@@ -31,17 +31,19 @@ export function ProjectListItem({ project, index, total }: ProjectListItemProps)
           </div>
         )}
         <TagList tags={tags} />
-        <p className="project-item__description">{description}</p>
+        <div className="project-item__footer">
+          <p className="project-item__description">{description}</p>
 
-        <div className="project-item__actions">
-          {/* botão do GitHub em cores invertidas do tema (destaque); sem href fica apagado até o link existir */}
-          <PillLink
-            label={actionLabel}
-            href={href}
-            variant={href ? 'solid' : 'outline'}
-            arrow={href ? 'up-right' : undefined}
-            icon={<BrandIcon name="github" />}
-          />
+          <div className="project-item__actions">
+            {/* botão do GitHub em cores invertidas do tema (destaque); sem href fica apagado até o link existir */}
+            <PillLink
+              label={actionLabel}
+              href={href}
+              variant={href ? 'solid' : 'outline'}
+              arrow={href ? 'up-right' : undefined}
+              icon={<BrandIcon name="github" />}
+            />
+          </div>
         </div>
       </div>
 

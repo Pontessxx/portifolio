@@ -7,6 +7,7 @@
   padding: var(--space-2xl);
   border: 1px solid var(--line);
   border-radius: var(--space-lg);
+  background: var(--bg); // card da cor do fundo da página
 
   &__body {
     display: flex;
@@ -71,8 +72,54 @@
     color: var(--g1);
   }
 
+  // desktop: texto mais estreito e imagem maior, os dois centralizados na vertical
+  @media (min-width: 721px) {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: center;
+    gap: var(--space-2xl);
+
+    &__body {
+      justify-content: center;
+    }
+
+    &__title {
+      font-size: clamp(28px, 3.2vw, 44px); // títulos longos não passam de 2 linhas
+    }
+
+    &__media {
+      aspect-ratio: 4 / 3;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  // celular: foto acima da descrição; descrição à esquerda e botão à direita
   @media (max-width: 720px) {
     grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-md);
     padding: var(--space-md);
+
+    &__body {
+      display: contents;
+    }
+
+    &__media {
+      order: 1;
+    }
+
+    &__footer {
+      order: 2;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    &__actions {
+      justify-content: flex-end;
+      padding-top: 0;
+    }
   }
 }
