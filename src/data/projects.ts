@@ -88,11 +88,11 @@ export const projects: Project[] = [
   {
     title: 'Encurtador de links',
     description:
-      'Microsserviço próprio de encurtador de links, para não depender de serviços de terceiros. Fica atrás da API e não é acessado direto pelo cliente.',
-    tags: ['.NET', 'PostgreSQL'],
+      'API REST que cria links curtos e redireciona para a URL original. Feita em .NET 10 em camadas, com Cassandra, códigos gerados com Hashids a partir de IDs reservados em blocos, testes com xUnit e CI no GitHub Actions.',
+    tags: ['.NET', 'Cassandra', 'Docker', 'xUnit', 'GitHub Actions'],
     categories: ['.NET'],
     image: wallet, // mesma ilustração .NET do Wallet
-    status: 'Em construção',
+    href: 'https://github.com/Pontessxx/Encurtador-Link',
   },
   {
     title: 'JAT - Job Application Tracking',
